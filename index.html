@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Divi Child theme Generator</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <form id="divi-child-theme-generator">
+    <div>
+      <label for="theme-name">Nombre del tema*:</label>
+      <input type="text" id="theme-name" name="theme-name" required>
+    </div>
+
+    <div>
+      <label for="theme-website">Sitio web del tema:</label>
+      <input type="text" id="theme-website" name="theme-website">
+      <small>https://miweb.com</small>
+    </div>
+
+    <div>
+      <label for="theme-description">Descripción</label>
+      <textarea name="theme-description" id="theme-description" cols="30" rows="5"></textarea>
+    </div>
+
+    <div>
+      <label for="theme-author">Autor:</label>
+      <input type="text" id="theme-author" name="theme-author">
+    </div>
+    <div>
+      <label for="theme-author-website">Sitio web del autor:</label>
+      <input type="text" id="theme-author-website" name="theme-author-website">
+      <small>https://miweb.com</small>  
+    </div>
+
+    <div>
+      <label for="theme-version">Versión:</label>
+      <input type="text" id="theme-version" name="theme-version" placeholder="1.0.0">
+    </div>
+
+    <div>
+      <label for="theme-license">Licencia:</label>
+      <input type="text" id="theme-license" name="theme-license" placeholder="GNU General Public License v2 o posterior">
+    </div>
+
+    <div>
+      <label for="theme-license-url">URL de la licencia:</label>
+      <input type="text" id="theme-license-url" name="theme-license-url" placeholder="http://www.gnu.org/licenses/gpl-2.0.html">
+    </div>
+
+    <div>
+      <label for="theme-custom-css">CSS personalizado</label>
+      <textarea name="theme-custom-css" id="theme-custom-css" cols="30" rows="5"></textarea>
+    </div>
+
+    <div>
+      <label for="theme-custom-js">JavaScript Personalizado</label>
+      <textarea name="theme-custom-js" id="theme-custom-js" cols="30" rows="5"></textarea>
+    </div>
+
+    <input type="submit" value="Generar Tema Hijo">
+</form>
+</body>
+</html>
