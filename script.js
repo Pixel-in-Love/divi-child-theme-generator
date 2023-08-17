@@ -14,7 +14,6 @@ themeForm.addEventListener('submit',async function(event) {
   const themeCustomCSS = this['theme-custom-css'].value;
   const themeCustomJS = this['theme-custom-js'].value;
 
-  // Generate style.css
   const styleCss = `
   /*
   Theme Name:   ${themeName}
@@ -37,7 +36,6 @@ themeForm.addEventListener('submit',async function(event) {
   ${themeCustomJS}
   `;
 
-  // Generate functions.php
   const functionsPhp = `
   <?php
     function child_enqueue_styles() {
@@ -48,33 +46,34 @@ themeForm.addEventListener('submit',async function(event) {
     
   ?>`;
 
-  // Create a new JSZip instance
   const zip = new JSZip();
 
-  // Add files to the zip
   zip.file("style.css", styleCss);
   zip.file("functions.php", functionsPhp);
   zip.file("custom.js", customJS);
 
-  var response = await fetch('screenshot.png');  // Assuming 'default.png' is the name of the default PNG file
-  var defaultImageBlob = await response.blob();
+  const response = await fetch('generator-screenshot.png'); 
+  const defaultImageBlob = await response.blob();
   zip.file('screenshot.png', defaultImageBlob);
 
-  // Generate the zip file
   zip.generateAsync({type:"blob"}).then(function(content) {
-      // Create a URL for the zip file
       const url = URL.createObjectURL(content);
 
-      // Create a download link
       const link = document.createElement('a');
       link.href = url;
       link.download = 'divi-child-theme.zip';
       document.body.appendChild(link);
 
-      // Trigger the download
       link.click();
 
-      // Clean up
       document.body.removeChild(link);
   });
+
+  this.reset();
+  const successMsg = document.getElementById('successMsg');
+  successMsg.classList.add('show-message');
+
+  setTimeout(function() {
+      successMsg.classList.remove('show-message');
+  }, 5000);
 });
